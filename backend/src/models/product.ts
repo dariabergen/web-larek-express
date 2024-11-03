@@ -2,7 +2,7 @@ import mongoose, { Schema } from "mongoose";
 
 export interface IProduct {
   title: string;
-  image: { fileName: string, originalName: string; }
+  image: { fileName: string; originalName: string };
   category: string;
   description?: string;
   price?: number;
@@ -13,7 +13,7 @@ const productSchema = new Schema<IProduct>({
     type: String,
     minlength: 2,
     maxlength: 30,
-    required: true
+    required: true,
   },
   image: {
     type: { fileName: String, originalName: String },
@@ -21,7 +21,7 @@ const productSchema = new Schema<IProduct>({
   },
   category: {
     type: String,
-    required: true
+    required: true,
   },
   description: {
     type: String,
@@ -30,8 +30,8 @@ const productSchema = new Schema<IProduct>({
   price: {
     type: Number,
     required: false,
-    default: null
-  }
+    default: null,
+  },
 });
 
-export default mongoose.model<IProduct>('product', productSchema); 
+export default mongoose.model<IProduct>("product", productSchema);
