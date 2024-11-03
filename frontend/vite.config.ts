@@ -5,15 +5,15 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), tsconfigPaths({root: __dirname})],
+  plugins: [react(), tsconfigPaths({ root: __dirname })],
   resolve: {
     alias: {
       $fonts: resolve('./src/vendor/fonts'),
       $assets: resolve('./src/assets'),
-    }
+    },
   },
   build: {
-    assetsInlineLimit:0,
+    assetsInlineLimit: 0,
   },
   css: {
     preprocessorOptions: {
@@ -23,8 +23,9 @@ export default defineConfig({
           @use "./src/scss/mixins";
         `,
       },
-
-    }
+    },
   },
-
-})
+  server: {
+    port: 3000,
+  },
+});
